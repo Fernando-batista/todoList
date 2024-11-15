@@ -26,7 +26,8 @@ export default StyleSheet.create({
         padding: 10,
         borderWidth: 1,
         color: "#F2F2F2",
-        fontFamily: "inter"
+        fontFamily: "inter",
+        maxHeight: 50
     },
     btnSubmit: {
         width: 50,

@@ -41,6 +41,12 @@ export default function HomeScreen(){
         }
     }
 
+    function handleCancelTask(taskValue: string):void{
+        const newList: string[] = listTask.filter( taskIndice => taskValue !== taskIndice );
+        setListTask(prevstate => [...newList] );
+        setcreated(prevsatate => prevsatate - 1);
+    }
+
     return (
         <View style={styles.content} >
             <Image style={styles.imgHeader} source={require("../../assets/images/Logo.png")} />
@@ -80,6 +86,7 @@ export default function HomeScreen(){
                             taskName={item} 
                             remove={()=> handleRemoveTask(item) } 
                             finished={()=> setfinished( prevestate => prevestate + 1 )} 
+                            cancel={()=> handleCancelTask(item)}
                             />
                     )} 
                     />
