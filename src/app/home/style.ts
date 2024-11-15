@@ -15,7 +15,9 @@ export default StyleSheet.create({
         marginTop: 18,
         flexDirection: "row",
         gap: 10,
-        padding: 16
+        paddingTop: 15,
+        paddingLeft: 18,
+        paddingRight: 18
     },
     inputTasks: {
         flex: 1,
@@ -23,6 +25,8 @@ export default StyleSheet.create({
         borderRadius: 6,
         padding: 10,
         borderWidth: 1,
+        color: "#F2F2F2",
+        fontFamily: "inter"
     },
     btnSubmit: {
         width: 50,
@@ -33,25 +37,20 @@ export default StyleSheet.create({
         alignItems: "center"
     },
     titleBtn: {
-        color: "#fff",
-        width: 22,
-        height: 22,
-        borderColor: "white",
-        borderWidth: 1,
-        textAlign: "center",
-        borderRadius: 50
+        maxWidth: 17,
+        maxHeight: 17
     },
     listTasks: {
-        marginTop: 15,
+        marginTop: 30,
         width: "100%",
-        paddingLeft: 15,
-        paddingRight: 15
+        paddingLeft: 18,
+        paddingRight: 18,
     },
-    infoTitle: {
+    FlatList: {
+        marginTop: 20,
+    },
+    infoTasks: {
         flexDirection: "row",
-        paddingBottom: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: "#333333",
         justifyContent: "space-between"
     }
 })
