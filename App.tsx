@@ -1,5 +1,4 @@
 import { useFonts } from "expo-font";
-import { useEffect } from "react";
 import HomeScreen from "./src/app/home";
 import { setBackgroundColorAsync, getBackgroundColorAsync } from "expo-navigation-bar"
 

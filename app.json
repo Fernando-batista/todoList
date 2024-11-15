@@ -19,13 +19,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#000000"
-      }
+      },
+      "package": "com.fernando.bs14.todolist"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "5bc11044-e2f8-4389-bd67-d6be428e8a8e"
+      }
+    }
   }
 }
