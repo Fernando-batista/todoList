@@ -25,9 +25,13 @@ export default function HomeScreen(){
 
 
     function handleAddTask(){
+        if(task === "" || task === " " || task === "  "){
+            return null
+        }
+
         setListTask(prevstate => [...prevstate, task])
         setTask("")
-        setcreated(listTask.length + 1)
+        setcreated(prevstate => prevstate + 1)
     }
 
     function handleRemoveTask(taskValue: string):void{
@@ -35,9 +39,7 @@ export default function HomeScreen(){
         setListTask(prevstate => [...newList] );
         setcreated(prevsatate => prevsatate - 1);
 
-        if(finished > 0){
-            setfinished(prevstate => prevstate - 1)
-        }
+        setfinished(prevstate => prevstate - 1)
     }
 
     function handleCancelTask(taskValue: string):void{
@@ -45,6 +47,15 @@ export default function HomeScreen(){
         setListTask(prevstate => [...newList] );
         setcreated(prevsatate => prevsatate - 1);
     }
+
+    function updateList(){
+        const search: string[] = listTask.filter(task => task !== " ");
+        console.log(search.length)
+        if(search.length > 8){
+            setListTask(prevstate => [...search, " ", " "])
+        }
+    }
+
 
     return (
         <View style={styles.content} >
@@ -75,11 +86,12 @@ export default function HomeScreen(){
                   <TextPanel title="criadas" cout={created} color="#4EA8DE"/>
                   <TextPanel title="concluidas" cout={finished} color="#8284FA"/>
                 </View>
-
-                <FlatList 
+                <FlatList
+                    onEndReached={updateList}
+                    onEndReachedThreshold={0.4}
                     style={styles.FlatList}
                     ListEmptyComponent={()=> <Empty /> }
-                    data={listTask} 
+                    data={listTask}
                     renderItem={({item})=>(
                         <Tasks 
                             taskName={item} 
@@ -87,8 +99,8 @@ export default function HomeScreen(){
                             finished={()=> setfinished( prevestate => prevestate + 1 )} 
                             cancel={()=> handleCancelTask(item)}
                             />
-                    )} 
-                    />
+                    )} />
+
             </View>
 
             <StatusBar  

@@ -1,6 +1,7 @@
 import { useFonts } from "expo-font";
 import HomeScreen from "./src/app/home";
-import { setBackgroundColorAsync, getBackgroundColorAsync } from "expo-navigation-bar"
+import  Load from "./src/app/load";
+import { setBackgroundColorAsync } from "expo-navigation-bar";
 
 export default function App() {
   const [font, err] = useFonts({
@@ -8,7 +9,7 @@ export default function App() {
   })
 
   if(!font){
-    return null
+    return <Load />
   }
 
   setBackgroundColorAsync("#1A1A1A")
