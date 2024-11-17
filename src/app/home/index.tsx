@@ -28,7 +28,6 @@ export default function HomeScreen(){
         if(task === "" || task === " " || task === "  "){
             return null
         }
-
         setListTask(prevstate => [...prevstate, task])
         setTask("")
         setcreated(prevstate => prevstate + 1)
@@ -49,10 +48,13 @@ export default function HomeScreen(){
     }
 
     function updateList(){
-        const search: string[] = listTask.filter(task => task !== " ");
-        console.log(search.length)
-        if(search.length > 8){
-            setListTask(prevstate => [...search, " ", " "])
+        /*
+         função responsavel por incluir dois espaço vazio no fim da lista para eu ver em tempo real
+         os que estão sendo adicionados
+         */ 
+        const search: string[] = listTask.filter(task => task !== " "); // remove end list
+        if(search.length > 8){ // se a lista for maior que 8 
+            setListTask(prevstate => [...search, " ", " "]) // add end list
         }
     }
 
